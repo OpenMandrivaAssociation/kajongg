@@ -1,11 +1,11 @@
-Name:		kajongg
 Summary:	Majongg game for KDE
-Version:	4.10.3
-Release:	1
+Name:		kajongg
 Epoch:		1
+Version:	4.10.3
+Release:	2
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
-URL:		http://www.kde.org/applications/games/kajongg/
+Url:		http://www.kde.org/applications/games/kajongg/
 Source:		ftp://ftp.kde.org/pub/kde/stable/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	kdelibs4-devel
 BuildRequires:	python-kde4
@@ -20,7 +20,7 @@ Requires:	kmahjongglib
 Requires:	vorbis-tools
 BuildArch:	noarch
 
-%description -n kajongg
+%description
 Kajongg is the ancient Chinese board game for 4 players.
 
 Kajongg can be used in two different ways: Scoring a manual game where you play
@@ -28,7 +28,7 @@ as always and use Kajongg for the computation of scores and for bookkeeping. Or
 you can use Kajongg to play against any combination of other human players or
 computer players.
 
-%files -n kajongg
+%files
 %{_kde_bindir}/kajongg
 %{_kde_bindir}/kajonggserver
 %{_kde_applicationsdir}/kajongg.desktop
