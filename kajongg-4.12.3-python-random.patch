@@ -1,0 +1,15 @@
+diff -urN kajongg-4.12.3/src/game.py kajongg-4.12.3-patched/src/game.py
+--- kajongg-4.12.3/src/game.py	2014-02-10 07:06:17.000000000 +1100
++++ kajongg-4.12.3-patched/src/game.py	2014-03-08 11:22:40.377752824 +1100
+@@ -63,9 +63,9 @@
+         if Debug.random:
+             self.game.debug('%d calls to random by Random.shuffle from %s' % (
+                 self.count - oldCount, stack('')[-2]))
+-    def randrange(self, start, stop=None, step=1, intType=int, default=None, maxWidth=9007199254740992L):
++    def randrange(self, start, stop=None, step=1):
+         oldCount = self.count
+-        result = Random.randrange(self, start, stop, step, intType, default, maxWidth)
++        result = Random.randrange(self, start, stop, step)
+         if Debug.random:
+             self.game.debug('%d calls to random by Random.randrange(%d,%s) from %s' % (
+                 self.count - oldCount, start, stop, stack('')[-2]))
