@@ -1,7 +1,7 @@
 Summary:	Majongg game for KDE
 Name:		kajongg
-Version:	4.12.3
-Release:	2
+Version:	4.12.4
+Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2+ and LGPLv2+ and GFDL
@@ -51,6 +51,9 @@ computer players.
 %makeinstall_std -C build
 
 %changelog
+* Wed Apr 02 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.12.4-1
+- New version 4.12.4
+
 * Sat Mar 08 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.12.3-2
 - Add python-random patch to fix crash
 
