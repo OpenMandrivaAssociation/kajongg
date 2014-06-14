@@ -7,7 +7,6 @@ Group:		Graphical desktop/KDE
 License:	GPLv2+ and LGPLv2+ and GFDL
 Url:		http://www.kde.org/applications/games/kajongg/
 Source0:	ftp://ftp.kde.org/pub/kde/stable/%{version}/src/%{name}-%{version}.tar.xz
-Patch0:		kajongg-4.12.3-python-random.patch
 BuildRequires:	kdelibs4-devel
 BuildRequires:	python-kde4
 BuildRequires:	python-qt4
@@ -41,7 +40,6 @@ computer players.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %cmake_kde4
@@ -53,6 +51,7 @@ computer players.
 %changelog
 * Wed Jun 11 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.13.2-1
 - New version 4.13.2
+- Drop python-random patch, fixed upstream
 
 * Wed Apr 02 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.12.4-1
 - New version 4.12.4
