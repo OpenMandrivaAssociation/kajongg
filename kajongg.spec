@@ -9,7 +9,7 @@ Url:		http://www.kde.org/applications/games/kajongg/
 Source0:	ftp://ftp.kde.org/pub/kde/stable/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	kdelibs4-devel
 BuildRequires:	python-kde4
-BuildRequires:	python-qt4
+BuildRequires:	python2-qt4
 BuildRequires:	python-twisted-core
 BuildRequires:	pkgconfig(sqlite3)
 Requires:	python-kde4
