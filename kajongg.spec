@@ -1,19 +1,18 @@
 Summary:	Majongg game for KDE
 Name:		kajongg
-Version:	4.14.3
-Release:	2
+Version:	14.12.0
+Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2+ and LGPLv2+ and GFDL
 Url:		http://www.kde.org/applications/games/kajongg/
 Source0:	ftp://ftp.kde.org/pub/kde/stable/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	kdelibs4-devel
-BuildRequires:	python-kde4
-BuildRequires:	python2-qt4
-BuildRequires:	python-twisted-core
+BuildRequires:	python2-kde4
+BuildRequires:	python2-twisted
 BuildRequires:	pkgconfig(sqlite3)
-Requires:	python-kde4
-Requires:	python-twisted-core
+Requires:	python2-kde4
+Requires:	python2-twisted
 Requires:	qt4-database-plugin-sqlite
 Requires:	kmahjongglib
 # kajongg needed ogg123 @ runtime
@@ -42,7 +41,7 @@ computer players.
 %setup -q
 
 %build
-%cmake_kde4
+%cmake_kde4 -DPYTHON_EXECUTABLE=%{__python2}
 %make
 
 %install
