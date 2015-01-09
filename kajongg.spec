@@ -12,6 +12,7 @@ BuildRequires:	python-kde4-devel
 BuildRequires:	python-qt4-devel
 BuildRequires:	python2-kde4
 BuildRequires:	python2-twisted
+BuildRequires:	python2-sip
 BuildRequires:	pkgconfig(sqlite3)
 Requires:	python2-kde4
 Requires:	python2-twisted
