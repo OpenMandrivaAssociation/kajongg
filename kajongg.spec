@@ -8,6 +8,8 @@ License:	GPLv2+ and LGPLv2+ and GFDL
 Url:		http://www.kde.org/applications/games/kajongg/
 Source0:	ftp://ftp.kde.org/pub/kde/stable/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	kdelibs4-devel
+BuildRequires:	python-kde4-devel
+BuildRequires:	python-qt4-devel
 BuildRequires:	python2-kde4
 BuildRequires:	python2-twisted
 BuildRequires:	pkgconfig(sqlite3)
