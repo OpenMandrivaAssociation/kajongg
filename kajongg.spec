@@ -2,8 +2,8 @@
 
 Summary:	Majongg game for KDE
 Name:		kajongg
-Version:	15.04.3
-Release:	3
+Version:	15.08.1
+Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2+ and LGPLv2+ and GFDL
@@ -47,7 +47,7 @@ computer players.
 %setup -q
 
 %build
-%cmake_kde4 -DPYTHON_EXECUTABLE=%{__python2}
+%cmake_kde4 -DPYTHON_EXECUTABLE=%{__python2} -DCMAKE_MINIMUM_REQUIRED_VERSION=2.6
 %make
 
 %install
