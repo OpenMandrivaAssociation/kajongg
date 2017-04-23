@@ -2,7 +2,7 @@
 
 Summary:	Majongg game for KDE
 Name:		kajongg
-Version:	16.12.2
+Version:	17.04.0
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -10,15 +10,20 @@ License:	GPLv2+ and LGPLv2+ and GFDL
 Url:		http://www.kde.org/applications/games/kajongg/
 Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	kdelibs-devel
-BuildRequires:	python-kde4-devel
-BuildRequires:	python-qt4-devel
-BuildRequires:	python2-kde4
-BuildRequires:	python2-twisted
-BuildRequires:	python2-sip
+BuildRequires:	python-qt5-gui
+BuildRequires:	python-twisted
+BuildRequires:	python-sip
 BuildRequires:	pkgconfig(sqlite3)
-Requires:	python2-kde4
-Requires:	python2-twisted
-Requires:	qt4-database-plugin-sqlite
+BuildRequires:	extra-cmake-modules
+BuildRequires:	python-devel >= 3.5.0
+BuildRequires:	cmake(Qt5Core)
+BuildRequires:	cmake(Qt5Gui)
+BuildRequires:	cmake(Qt5Svg)
+BuildRequires:	cmake(Qt5Widgets)
+BuildRequires:	cmake(KF5Config)
+BuildRequires:	cmake(KF5DocTools)
+Requires:	python-twisted
+Requires:	qt5-database-plugin-sqlite
 Requires:	kmahjongglib
 # kajongg needed ogg123 @ runtime
 Requires:	vorbis-tools
@@ -32,14 +37,11 @@ as always and use Kajongg for the computation of scores and for bookkeeping. Or
 you can use Kajongg to play against any combination of other human players or
 computer players.
 
-%files
-%{_kde_bindir}/kajongg
-%{_kde_bindir}/kajonggserver
-%{_kde_applicationsdir}/kajongg.desktop
-%{_kde_appsdir}/kajongg
-%{_kde_docdir}/HTML/en/kajongg
-%{_kde_iconsdir}/hicolor/*/*/*kajongg*
-%{_datadir}/appdata/kajongg.appdata.xml
+%files -f %{name}.lang
+%{_datadir}/applications/org.kde.kajongg.desktop
+%{_datadir}/icons/hicolor/*/*/*kajongg*
+%{_datadir}/kajongg
+%{_datadir}/metainfo/org.kde.kajongg.appdata.xml
 
 #------------------------------------------------------------------------------
 
@@ -47,8 +49,9 @@ computer players.
 %setup -q
 
 %build
-%cmake_kde4 -DPYTHON_EXECUTABLE=%{__python2} -DCMAKE_MINIMUM_REQUIRED_VERSION=2.6
-%make
+%cmake -G Ninja
+%ninja
 
 %install
-%makeinstall_std -C build
+%ninja_install -C build
+%find_lang kajongg --with-html
