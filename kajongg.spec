@@ -9,12 +9,12 @@ Group:		Graphical desktop/KDE
 License:	GPLv2+ and LGPLv2+ and GFDL
 Url:		http://www.kde.org/applications/games/kajongg/
 Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
-BuildRequires:	kdelibs-devel
 BuildRequires:	python-qt5-gui
 BuildRequires:	python-twisted
 BuildRequires:	python-sip
 BuildRequires:	pkgconfig(sqlite3)
-BuildRequires:	extra-cmake-modules
+BuildRequires:	cmake(ECM)
+BuildRequires:	cmake(KF5KMahjongglib)
 BuildRequires:	python-devel >= 3.5.0
 BuildRequires:	cmake(Qt5Core)
 BuildRequires:	cmake(Qt5Gui)
@@ -47,10 +47,10 @@ computer players.
 
 %prep
 %setup -q
+%cmake_kde5
 
 %build
-%cmake -G Ninja
-%ninja
+%ninja -C build
 
 %install
 %ninja_install -C build
