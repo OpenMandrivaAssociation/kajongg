@@ -9,9 +9,9 @@ Group:		Graphical desktop/KDE
 License:	GPLv2+ and LGPLv2+ and GFDL
 Url:		http://www.kde.org/applications/games/kajongg/
 Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Patch0:		fix-i18n.patch
 BuildRequires:	python-qt5-gui
 BuildRequires:	python-twisted
-BuildRequires:	python-sip
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5KMahjongglib)
@@ -22,6 +22,8 @@ BuildRequires:	cmake(Qt5Svg)
 BuildRequires:	cmake(Qt5Widgets)
 BuildRequires:	cmake(KF5Config)
 BuildRequires:	cmake(KF5DocTools)
+BuildRequires:	cmake(KF5I18n)
+BuildRequires:	cmake(KF5ConfigWidgets)
 Requires:	python-twisted
 Requires:	qt5-database-plugin-sqlite
 Requires:	kmahjongglib
@@ -47,6 +49,12 @@ computer players.
 
 %prep
 %setup -q
+%apply_patches
+
+# Workaround for kde#376303
+export PYTHONDONTWRITEBYTECODE=1
+export DESTDIR=%{buildroot}
+
 %cmake_kde5
 
 %build
