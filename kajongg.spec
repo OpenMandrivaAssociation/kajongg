@@ -15,7 +15,7 @@ BuildRequires:	python-twisted
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5KMahjongglib)
-BuildRequires:	python-devel >= 3.5.0
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	cmake(Qt5Core)
 BuildRequires:	cmake(Qt5Gui)
 BuildRequires:	cmake(Qt5Svg)
