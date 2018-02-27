@@ -10,6 +10,7 @@ License:	GPLv2+ and LGPLv2+ and GFDL
 Url:		http://www.kde.org/applications/games/kajongg/
 Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 Patch0:		fix-i18n.patch
+Patch1:		kajongg-17.12.2-py3.4.patch
 BuildRequires:	python-qt5-gui
 BuildRequires:	python-twisted
 BuildRequires:	pkgconfig(sqlite3)
@@ -40,6 +41,8 @@ you can use Kajongg to play against any combination of other human players or
 computer players.
 
 %files -f %{name}.lang
+%{_bindir}/kajongg
+%{_bindir}/kajonggserver
 %{_datadir}/applications/org.kde.kajongg.desktop
 %{_datadir}/icons/hicolor/*/*/*kajongg*
 %{_datadir}/kajongg
@@ -63,3 +66,12 @@ export DESTDIR=%{buildroot}
 %install
 %ninja_install -C build
 %find_lang kajongg --with-html
+
+mkdir -p %{buildroot}%{_bindir}
+pushd    %{buildroot}%{_bindir}
+ln -s ../share/kajongg/kajongg.py kajongg
+ln -s ../share/kajongg/kajonggserver.py kajonggserver
+chmod a+rx kajongg kajonggserver
+popd
+
+
