@@ -2,7 +2,7 @@
 
 Summary:	Majongg game for KDE
 Name:		kajongg
-Version:	19.04.3
+Version:	19.07.80
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -10,7 +10,6 @@ License:	GPLv2+ and LGPLv2+ and GFDL
 Url:		http://www.kde.org/applications/games/kajongg/
 Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 Patch0:		fix-i18n.patch
-Patch1:		kajongg-17.12.2-py3.4.patch
 BuildRequires:	python-qt5-gui
 BuildRequires:	python-twisted
 BuildRequires:	pkgconfig(sqlite3)
