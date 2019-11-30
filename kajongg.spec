@@ -2,7 +2,7 @@
 
 Summary:	Majongg game for KDE
 Name:		kajongg
-Version:	19.11.80
+Version:	19.11.90
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
