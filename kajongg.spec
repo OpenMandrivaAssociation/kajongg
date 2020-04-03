@@ -2,7 +2,7 @@
 
 Summary:	Majongg game for KDE
 Name:		kajongg
-Version:	20.03.80
+Version:	20.03.90
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -52,11 +52,6 @@ computer players.
 %prep
 %setup -q
 %autopatch -p1
-
-# Workaround for kde#376303
-export PYTHONDONTWRITEBYTECODE=1
-export DESTDIR=%{buildroot}
-
 %cmake_kde5
 
 %build
@@ -66,11 +61,11 @@ export DESTDIR=%{buildroot}
 %ninja_install -C build
 %find_lang kajongg --with-html
 
+# FIXME Something in make install is broken...
+rm -rf %{buildroot}%{_prefix}%{_prefix}
 mkdir -p %{buildroot}%{_bindir}
 pushd    %{buildroot}%{_bindir}
 ln -s ../share/kajongg/kajongg.py kajongg
 ln -s ../share/kajongg/kajonggserver.py kajonggserver
 chmod a+rx kajongg kajonggserver
 popd
-
-
