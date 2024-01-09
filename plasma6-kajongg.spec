@@ -12,7 +12,7 @@ BuildRequires:	python-qt6-gui
 BuildRequires:	python-twisted
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	cmake(ECM)
-BuildRequires:	cmake(KF6KMahjongglib)
+BuildRequires:	cmake(KMahjongglib6)
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	cmake(Qt6Core)
 BuildRequires:	cmake(Qt6Gui)
@@ -37,7 +37,7 @@ as always and use Kajongg for the computation of scores and for bookkeeping. Or
 you can use Kajongg to play against any combination of other human players or
 computer players.
 
-%files -f %{name}.lang
+%files -f kajongg.lang
 %{_bindir}/kajongg
 %{_bindir}/kajonggserver
 %{_datadir}/applications/org.kde.kajongg.desktop
@@ -48,8 +48,7 @@ computer players.
 #------------------------------------------------------------------------------
 
 %prep
-%autosetup -p1
-%autopatch -p1
+%autosetup -p1 -n kajongg-%{version}
 %cmake \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
 	-G Ninja
@@ -60,12 +59,3 @@ computer players.
 %install
 %ninja_install -C build
 %find_lang kajongg --with-html
-
-# FIXME Something in make install is broken...
-rm -rf %{buildroot}%{_prefix}%{_prefix}
-mkdir -p %{buildroot}%{_bindir}
-pushd    %{buildroot}%{_bindir}
-ln -s ../share/kajongg/kajongg.py kajongg
-ln -s ../share/kajongg/kajonggserver.py kajonggserver
-chmod a+rx kajongg kajonggserver
-popd
