@@ -32,7 +32,7 @@ BuildRequires:	cmake(KF6I18n)
 BuildRequires:	cmake(KF6ConfigWidgets)
 Requires:	python-twisted
 Requires:	qt6-qtbase-sql-sqlite
-Requires:	kmahjongglib
+Requires:	plasma6-kmahjongglib
 # kajongg needed ogg123 @ runtime
 Requires:	vorbis-tools
 BuildArch:	noarch
