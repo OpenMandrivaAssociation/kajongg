@@ -5,7 +5,7 @@
 
 Summary:	Majongg game for KDE
 Name:		plasma6-kajongg
-Version:	24.05.2
+Version:	24.08.0
 Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPLv2+ and LGPLv2+ and GFDL
