@@ -5,8 +5,8 @@
 
 Summary:	Majongg game for KDE
 Name:		kajongg
-Version:	25.04.0
-Release:	%{?git:0.%{git}.}2
+Version:	25.04.3
+Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPLv2+ and LGPLv2+ and GFDL
 Url:		https://www.kde.org/applications/games/kajongg/
@@ -37,6 +37,11 @@ Requires:	plasma6-kmahjongglib
 Requires:	vorbis-tools
 BuildArch:	noarch
 
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+
+%rename plasma6-kajongg
+
 %description
 Kajongg is the ancient Chinese board game for 4 players.
 
@@ -52,18 +57,3 @@ computer players.
 %{_datadir}/icons/hicolor/*/*/*kajongg*
 %{_datadir}/kajongg
 %{_datadir}/metainfo/org.kde.kajongg.appdata.xml
-
-#------------------------------------------------------------------------------
-
-%prep
-%autosetup -p1 -n kajongg-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja
-
-%build
-%ninja -C build
-
-%install
-%ninja_install -C build
-%find_lang kajongg --with-html
