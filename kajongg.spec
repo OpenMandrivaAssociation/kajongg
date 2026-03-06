@@ -5,7 +5,7 @@
 
 Summary:	Majongg game for KDE
 Name:		kajongg
-Version:	25.12.2
+Version:	25.12.3
 Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPLv2+ and LGPLv2+ and GFDL
